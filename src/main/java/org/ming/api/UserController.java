@@ -3,13 +3,12 @@ package org.ming.api;
 import org.ming.api.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 public class UserController {
@@ -32,6 +31,11 @@ public class UserController {
         return client.all();
     }
 
+    @PostMapping("create")
+    User create(User user) {
+        return client.create(user);
+    }
+
 
     @FeignClient("UserService")
     interface HelloClient {
@@ -43,6 +47,9 @@ public class UserController {
 
         @RequestMapping(value = "/all", method = GET)
         List<User> all();
+
+        @RequestMapping(value = "/create", method = POST)
+        User create(@RequestBody User user);
     }
 
 }
