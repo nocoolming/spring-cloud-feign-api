@@ -27,6 +27,12 @@ public class UserController {
         return client.users();
     }
 
+    @GetMapping("all")
+    List<User> all() {
+        return client.all();
+    }
+
+
     @FeignClient("UserService")
     interface HelloClient {
         @RequestMapping(value = "/", method = GET)
@@ -34,6 +40,9 @@ public class UserController {
 
         @RequestMapping(value = "/users", method = GET)
         List<User> users();
+
+        @RequestMapping(value = "/all", method = GET)
+        List<User> all();
     }
 
 }
