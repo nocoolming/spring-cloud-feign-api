@@ -1,6 +1,6 @@
 spring:
   application:
-    name: Api
+    name: Feign User
 
 server:
   port: 8989
