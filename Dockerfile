@@ -1,7 +1,7 @@
-FROM openjdk:11
+FROM openjdk:8
 MAINTAINER Mingming Li  "21374618@qq.com"
 
 WORKDIR /app
-COPY target/api-1.0.jar /app
+COPY target/api-0.0.3.jar /app
 
-ENTRYPOINT ["java", "-jar", "/app/api-1.0.jar"]
+ENTRYPOINT ["java", "-jar", "/app/api-0.0.3.jar"]

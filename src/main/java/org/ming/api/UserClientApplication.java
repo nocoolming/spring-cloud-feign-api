@@ -20,9 +20,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-//@ComponentScan
 @EnableFeignClients
-//@EnableCircuitBreaker
 public class UserClientApplication {
 
     public static void main(String[] args) {

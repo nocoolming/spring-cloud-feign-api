@@ -1,6 +1,6 @@
 spring:
   application:
-    name: Feign User
+    name: FeignUser
 
 server:
   port: 8989
@@ -9,6 +9,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://eurekaServer:8763/eureka/
+    healtcheck:
+      enable: true
   instance:
     leaseRenewalIntervalInSeconds: 10
     metadataMap:
@@ -20,12 +22,12 @@ feign:
     enabled: false
 
 # To set thread isolation to SEMAPHORE
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          strategy: SEMAPHORE
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          strategy: SEMAPHORE
 
 #endpoints:
 #  restart:
